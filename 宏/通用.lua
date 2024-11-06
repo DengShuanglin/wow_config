@@ -3,6 +3,11 @@
 #showtooltip 风剪
 /cast [@focus,harm,nodead][@target,harm,nodead] 风剪
 
+# 近战焦点打断 - 敌对NPC
+# 说明: -
+#showtooltip 责难
+/stopcasting
+/cast [target=focus, exists, harm, nodead] 责难; 责难
 
 # 焦点进攻驱散 - 敌对NPC
 # 说明: 优先对焦点目标进行驱散。如果焦点不存在或不可驱散，将尝试驱散当前敌对目标。
