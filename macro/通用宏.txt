@@ -1,0 +1,94 @@
+# 通用宏
+
+## 检查宏
+
+/run a=C_CurrencyInfo.GetCurrencyInfo(3132) print("S2火花进度 " .. a.quantity+2 .. " / " .. a.maxQuantity+2 .. " " ) a=C_CurrencyInfo.GetCurrencyInfo(3116) print("S2转化次数 " .. a.quantity .. " / " .. a.maxQuantity .. " " )
+
+/run SendChatMessage("感谢各位，辛苦辽", "PARTY")
+
+/run SendChatMessage("新手奶哈，各位多包涵", "PARTY")
+
+/run SendChatMessage("6手坦克练习生，各位起手慢一丢丢等我拉稳仇恨，非常感谢~", "PARTY")
+
+/run SendChatMessage("感谢各位大佬，有不要的饰品/戒指/项链吗?", "PARTY")
+
+/run SendChatMessage("有知道路线的老哥能麻烦带带路吗，非常感谢", "INSTANCE_CHAT")
+
+
+
+
+## 焦点打断
+#showtooltip 风剪
+/cast [@focus,exists,harm,nodead][@target,harm,nodead] 风剪
+
+## 双向
+#showtooltip
+/cast [help,nodead] 治疗波;[harm,nodead] 闪电箭;[] 治疗波
+
+
+## 敌方鼠标指向宏
+#showtooltip 技能名称
+/cast [target=mouseover,nodead,harm] 技能名称;技能名称
+
+#showtooltip 审判
+/cast [target=mouseover,nodead,harm] 审判;审判
+
+#showtooltip 愤怒之锤
+/cast [target=mouseover,nodead,harm] 愤怒之锤;愤怒之锤
+
+#showtooltip 圣洁鸣钟
+/cast [target=mouseover,nodead,harm] 圣洁鸣钟;圣洁鸣钟
+
+#showtooltip 复仇者之盾
+/cast [target=mouseover,nodead,harm] 复仇者之盾;复仇者之盾
+
+#showtooltip 清算之手
+/cast [target=mouseover,nodead,harm] 清算之手;清算之手
+
+#showtooltip 制裁之锤
+/cast [target=mouseover,nodead,harm] 制裁之锤;制裁之锤
+
+## 友方鼠标指向宏
+#showtooltip 技能名称
+/cast [target=mouseover,help] 技能名称;技能名称
+
+## 悬停施法
+
+#showtooltip
+/cast [@cursor]图腾投射
+
+# 吃红 AutoPotion 插件
+
+-- 焦点打断 - 敌对NPC
+-- 说明: 优先打断焦点目标的施法。如果焦点不可打断或不存在，将尝试打断当前敌对目标。
+#showtooltip 风剪
+/cast [@focus,harm,nodead][@target,harm,nodead] 风剪; 风剪
+
+-- 近战焦点打断 - 敌对NPC
+-- 说明: -
+#showtooltip 责难
+/stopcasting
+/cast [@focus,harm,nodead][@target,harm,nodead] 责难; 责难
+
+-- 焦点进攻驱散 - 敌对NPC
+-- 说明: 优先对焦点目标进行驱散。如果焦点不存在或不可驱散，将尝试驱散当前敌对目标。
+#showtooltip 净化术
+/cast [@focus,harm,nodead][@target,harm,nodead] 净化术; 净化术
+
+
+# 焦点治疗 - 友方NPC
+# 说明: 优先治疗焦点目标。如果焦点不存在或不需要治疗，将尝试治疗当前友方目标。如果当前目标是敌人，则治疗自己。
+#showtooltip 治疗波
+/cast [@focus,help,nodead][@target,help,nodead][@player] 治疗波
+
+
+# 焦点驱散 - 友方NPC
+# 说明: 优先对焦点目标进行驱散。如果焦点不存在或不需要驱散，将尝试驱散当前友方目标。如果当前目标是敌人，则对自己进行驱散。
+#showtooltip 净化灵魂
+/cast [@focus,help,nodead][@target,help,nodead][@player] 净化灵魂
+
+
+# 双向宏
+# 说明: 根据当前目标的状态释放相应技能。对敌人使用伤害技能，对友方使用治疗技能。如果当前目标是敌人，则对其使用伤害技能；如果是友方或无目标，则对友方或自己使用治疗技能。
+#showtooltip [harm,nodead] 烈焰震击; [help,nodead] 治疗之涌
+/cast [harm,nodead] 烈焰震击; [help,nodead][@player] 治疗之涌

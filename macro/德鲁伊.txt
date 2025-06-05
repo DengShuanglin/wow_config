@@ -1,0 +1,32 @@
+#showtooltip 野性冲锋
+/cast [target=mouseover,nodead,harm] 野性冲锋;野性冲锋
+
+#showtooltip 低吼
+/cast [target=mouseover,nodead,harm] 低吼;低吼
+
+#showtooltip 复生
+/cast [@mouseover,help][] 复生
+
+#showtooltip
+/cast [@cursor] 乌索尔旋风
+
+#showtooltips
+/cast 明月普照
+/cast 沉睡者之怒
+
+#showtooltip 月火术
+/cast [@mouseover,harm,nodead][harm,nodead][] 月火术
+
+#showtooltip
+/cast [@mouseover,dead,help,exists]复生;[@mouseover,nodead,harm,exists]野性冲锋;
+/castsequence [mod]重殴; reset=3 裂伤,痛击,月火术,重殴,重殴,裂伤,痛击,月火术,重殴,重殴,裂伤,痛击,月火术,重殴,重殴,
+/cleartarget
+/startattack
+
+#showtooltips
+/cast 痛击
+/cast 铁鬃
+
+#showtooltips
+/cast 裂伤
+/cast 铁鬃
